@@ -94,5 +94,5 @@ To dos
 * Enhance manual control so that in the case of multiple devices turning one knob will adjust all of them.
 * Figure out why there is a 60Hz wave wave with 6.6v peaks and -13v valleys (Yikes!) on the LED power line when the LEDs are off.  Does not affect operation but would be good to eliminate.
  * [Oscilloscope trace of the wave](/assets/scope_images/best/dimmer_driver_60hz_wave_when_LED_off.png)
-* Create a RS485 or CAN version for use where the encoder is farther from the electronics box.  Alternately, test some I2C entender chips to increase the distance that is withing I2C specs.
+* Create a RS485 or CAN version for use where the encoder is farther from the electronics box.  Alternately, test some I2C entender chips to increase distance but keep within I2C specs.
 * Add optocouplers between the microcontroller and the power Mosfet module to better protect the microcontroller from the higher voltage the power Mosfets are using.  That will also provide the better safety needed to handle higher voltage.  An application would be controlling speed of a 24v DC motor.

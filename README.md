@@ -80,10 +80,10 @@ The circuit to amplify the 3.3v to 6.7v is based on logic level-shifter circuits
   * 10k 1/4W resistor
   * 1000uF 25v Electrolytic capacitor used to prevent a power supply dropout from a sudden change in brightness.
 * Additional parts
- * MR510 3A diode for reverse polarity protection. Size larger if your LED string pulls more currently.  My LED strip pulls about 1.5 A @12v when fully on. 
- * 1mF Capacitor to remove significant noise when the LED line is pulled low
-   * I am using some polyester ones that I have.  Ceramic might be a better choice.
-   * Goes between power and ground on the LED power line.
+  * MR510 3A diode for reverse polarity protection. Size larger if your LED string pulls more currently.  My LED strip pulls about 1.5 A @12v when fully on. 
+  * 1mF Capacitor to remove significant noise when the LED line is pulled low
+    * I am using some polyester ones that I have.  Ceramic might be a better choice.
+    * Goes between power and ground on the LED power line.
 * [Mosfet Switch Drive Board 0-20KHz PWM Electronic Switch](https://www.amazon.com/gp/product/B08CXB4WC)    $1.26
 
 ## Oscilloscope measurements of the device

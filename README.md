@@ -41,7 +41,7 @@ The 3.3v pulses from the microcontroller are level shifted up to ~6.7v to better
 
 A 1% duty cycle pulse is very narrow but as you can see in [this scope trace](/assets/scope_images/best/dimmer_driver_1per_zoom.png) the pulse (blue) reaches the Mosfet module's ~3v switching threshold quickly and acceptably.  So all good.
 
-The 6.7v pulses are output to the power Mosfet module to deliver the 12v pulse with higher current for the LED strip.  It turns out the voltage on the LED strip only drops to ~8v before the next pulse begins.  Even with that, the LED strip is quite dim with a 1% duty cycle pulse. Certainly as dim as I need.  [Here is a view](/assets/scope_images/best/LED_strip_PWM_result.png) of the pulses on the LED strip power line.
+The 6.7v pulses are output to the power Mosfet module to deliver the 12v pulse with higher current for the LED strip.  It turns out the voltage on the LED strip only drops to ~8v before the next pulse begins.  Even with that, the LED strip is quite dim with a 1% duty cycle pulse. Certainly as dim as I need.  [Here is a view](/assets/scope_images/best/LED_strip_PWM_with_1uf2.png) of the pulses on the LED strip power line.
 
 ### Microcontroller software logic
 The [Arduino sketch](/code/esp8266_alexa_led_control_w_encoder/esp8266_alexa_led_control_w_encoder.ino) (program) performs these functions:

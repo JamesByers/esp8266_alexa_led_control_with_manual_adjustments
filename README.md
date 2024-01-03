@@ -41,7 +41,7 @@ The 3.3v pulses from the microcontroller are level shifted up to ~6.7v to better
 
 A 1% duty cycle pulse is very narrow but as you can see in [this scope trace](/assets/scope_images/best/dimmer_driver_1per_zoom.png) the pulse (blue) reaches the Mosfet module's ~3v switching threshold quickly and acceptably.  So all good.
 
-The 6.7v pulses are output to the power Mosfet module to deliver the 12v pulse with higher current for the LED strip.  It turns out the voltage on the LED strip only drops to ~8v before the next pulse begins.  Even with that, the LED strip is quite dim with a 1% duty cycle pulse. Certainly as dim as I need.  [Here is a view](/assets/scope_images/best/LED_strip_PWM_with_1uf2.png) of the pulses on the LED strip power line.
+The 6.7v pulses are output to the power Mosfet module to deliver the 12v pulse with higher current for the LED strip.  It turns out the voltage on the LED strip only drops to ~9.3v before the next pulse begins.  Even with that, the LED strip is quite dim with a 1% duty cycle pulse. Certainly as dim as I need.  [Here is a view](/assets/scope_images/best/LED_strip_PWM_with_1uf2.png) of the pulses on the LED strip power line.
 
 ### Microcontroller software logic
 The [Arduino sketch](/code/esp8266_alexa_led_control_w_encoder/esp8266_alexa_led_control_w_encoder.ino) (program) performs these functions:
@@ -59,7 +59,7 @@ A rotary encoder is attached to a knob to sense either right or left rotation.  
 If you are going a long distance I2C is not the bus to use.  RS485 and CAN are recommended alternatives designed for better noise immunity and longer distances.
 
 ### The level shifter driver circuit
-The circuit to amplify the 3.3v to 6.7v is based on logic level-shifter circuits of [this type](/assets/bi_directional_level_shifter_circuit_diagram.jpg).  They work well between logic chips.  In my case I want to drive the power Mosfet module.  Due to its lower input impedance I found I needed to bring the R2 resistor value down from the 10k Ohm value.  When not connected to the module the output is near 12v.  But when connected the output of the circuit to the power Mosfet module the output dropped to a max of 3.6v.  My objective of the circuit is to raise the output to at least 5.5 volts in order assure the power Mosfet module is fully turned on.  I found that by reducing R2 to 2.2k Ohms I could level shift the pulse to ~6.7v.  Current through the resistor is an acceptable 5mA.  The schematic of my final level shifter design is [here](/assets/bi_directional_level_shifter_circuit_diagram_crop.png).  This is not a common way to drive a power Mosfet but I wanted a non-inverting circuit and am intrigued by this circuit's simplicity and its clever configuration.
+The circuit to amplify the 3.3v to 6.7v is based on logic level-shifter circuits of [this type](/assets/bi_directional_level_shifter_circuit_diagram.jpg).  They work well between logic chips.  In my case I want to drive the power Mosfet module.  Due to its lower input impedance I found I needed to bring the R2 resistor value down from the 10k Ohm value.  When not connected to the module the output is near 12v.  But when connected the output of the circuit to the power Mosfet module the output dropped to a max of 3.6v.  My objective for the circuit is to raise the output to at least 5.5 volts in order assure the power Mosfet module is fully turned on.  I found that by reducing R2 to 2.2k Ohms I could level shift the pulse to ~6.7v.  Current through the resistor is an acceptable 5mA.  The schematic of my final level shifter design is [here](/assets/bi_directional_level_shifter_circuit_diagram_crop.png).  This is not a common way to drive a power Mosfet but I wanted a non-inverting circuit and am intrigued by this circuit's simplicity and its clever configuration.
 
 ## Hardware builds
 * [First board](/assets/first_board.jpg)
@@ -78,7 +78,7 @@ The circuit to amplify the 3.3v to 6.7v is based on logic level-shifter circuits
   * [2n7000 Mosfet transistor](https://www.digikey.com/en/htmldatasheets/production/99360/0/0/1/2n7000-datasheet)
   * 2.2k 1/4W resistor
   * 10k 1/4W resistor
-  * 1000uF 25v Electrolytic capacitor used to prevent power supply dropout from sudden change in brightness.
+  * 1000uF 25v Electrolytic capacitor used to prevent a power supply dropout from a sudden change in brightness.
 * Additional parts
  * MR510 3A diode for reverse polarity protection. Size larger if your LED string pulls more currently.  My LED strip pulls about 1.5 A @12v when fully on. 
  * 1mF Capacitor to remove significant noise when the LED line is pulled low
@@ -98,7 +98,5 @@ The circuit to amplify the 3.3v to 6.7v is based on logic level-shifter circuits
 ## Potential enhancements
 To dos
 * Enhance manual control so that in the case of multiple devices turning one knob will adjust all of them.
-* Figure out why there is a 60Hz wave wave with 6.6v peaks and -13v valleys (Yikes!) on the LED power line when the LEDs are off.  Does not affect operation but would be good to eliminate.  May be a contributor to preventing teh LED power line from reaching lower than ~8v when the LEDs are on.  It is pretty easy to see 60Hz ripple affect the low value of the pulses.
-  * [Oscilloscope trace of the wave](/assets/scope_images/best/dimmer_driver_60hz_wave_when_LED_off.png)
 * Create a RS485 or CAN version for use where the encoder is farther from the electronics box.  Alternately, test some I2C entender chips to increase distance but keep within I2C specs.
 * Add optocouplers between the microcontroller and the power Mosfet module to better protect the microcontroller from the higher voltage the power Mosfets are switching.  That will also provide the better safety needed to handle higher voltage.  An application would be controlling speed of a 24v DC motor.

@@ -50,7 +50,7 @@ The [Arduino sketch](/code/esp8266_alexa_led_control_w_encoder/esp8266_alexa_led
 * Listens for a command from Alexa
 * Watches for a turn of knob (rotary encoder)
 * Watches for a push on the knob (on/off).  Software debounce is performed in the code without a library.
-* Makes a pulse width change on an output pin when it determines a brightness change is requested
+* Makes a pulse width change on an output pin when it determined a brightness change is requested
 * Communicates to Alexa the brightness level after a change
 
 ### The rotary encoder
@@ -86,8 +86,10 @@ The circuit to amplify the 3.3v to 6.7v is based on logic level-shifter circuits
 * [Pulse trains from microcontroller (3.3V) and level shifter (6.7V)](/assets/scope_images/best/dimmer_driver_many_pulses.png)
 * [Zoom in on three pulses](/assets/scope_images/best/dimmer_driver_triple_pulse.png)
 * [Single 1% duty cyle pulse](/assets/scope_images/best/dimmer_driver_1per_zoom.png) 
-* [Zoom in on single 1% duty cycle pulse](/assets/scope_images/best/dimmer_driver_zoom_in.png)
-* [Resulting pulses on the LED line](/assets/scope_images/best/LED_strip_PWM_result.png)
+* [Zoom in on single 1% duty cycle pulse](/assets/scope_fore images/best/dimmer_driver_zoom_in.png)
+* [Resulting pulses on the LED line](LED_strip_PWM_with_1uf2.png)
+* [Zoom in on 1% pulse ringing](/assets/scope_images/best/LED_strip_PWM_with_1uf_rise_and_ring2.png)
+* [Deeper Zoom in on 1% pulse ringing](/assets/scope_images/best/LED_strip_PWM_with_1uf_rise_and_ring1.png)
 
 ## Potential enhancements
 To dos

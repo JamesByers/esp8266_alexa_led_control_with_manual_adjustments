@@ -9,7 +9,7 @@ When a request for under-cabinet lights becomes a custom electronics project.
 ## Overview of this project
 The goal of this project is to control the brightness of an LED strip. The implementation provides Alexa control of the LED strip.  In addition, manual control is provided by a rotary knob.  The project is implemented using the Arduino software environment and a small box of electronics. 
 
-Being Arduino, the code is in C++.  The code uses the [Fauxmo](https://github.com/vintlabs/fauxmoESP) library to enable device to Alexa commuinication.  To read the movement of the knob I used the [RotaryEncoder](https://github.com/mathertel/RotaryEncoder) library.
+Being Arduino, the code is in C++.  The code uses the [Fauxmo](https://github.com/vintlabs/fauxmoESP) library to enable device to Alexa communication.  To read the movement of the knob I used the [RotaryEncoder](https://github.com/mathertel/RotaryEncoder) library.
 
 ## Contents of this page
 * [Overview of this project](#overview-of-this-project)

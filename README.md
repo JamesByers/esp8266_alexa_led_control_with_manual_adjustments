@@ -69,7 +69,7 @@ The circuit to amplify the 3.3v to 6.7v is based on logic level-shifter circuits
 * [5 meter 12v LED strip (non-addressable) with 12v 3A power supply](https://www.ebay.com/itm/126175699898)  $16.99.
 * [Small buck converter, 12v->5v](https://www.amazon.com/gp/product/B0CDWW4XHL)   $1.30
     * An adjustable one works fine.  
-    * Only supplies power to the microprocessor, the rotary encoder, and the 2n7000 small Mosfet.  Since the current draw is small I was able to use a very small part. 
+    * Only supplies power to the microprocessor, the rotary encoder, and the small 2n7000 small Mosfet.  Since the current draw is small I was able to use a very small part. 
 * [NodeMCU ESP8266 microcontroller](https://en.wikipedia.org/wiki/NodeMCU)   $3.16
 * [KY-040 Rotary encoder module with on/off switch and I2C interface]()    $1.25
   * Module says 5v operating voltage but KY-040 rotary encodrr suports 3.3v. I powered it with 3.3v.

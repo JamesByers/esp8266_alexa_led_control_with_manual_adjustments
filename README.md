@@ -25,7 +25,7 @@ Being Arduino, the code is in C++.  The code uses the [Fauxmo](https://github.co
 * [Potential enhancements](#potential-enhancements)
 
 ## Requirements
-* The user will be able to control an LED strip
+* The user will be able to control the brightness of an LED strip
 * They will be able to:
    * Turn an LED strip on and off
    * Adjust the brilliance (dim the LED)

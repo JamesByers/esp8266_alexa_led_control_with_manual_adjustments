@@ -36,11 +36,11 @@ Being Arduino, the code is in C++.  The code uses the [Fauxmo](https://github.co
 ### Brightness control
 Brightness control (dimming) is done using [Pulse-width modulation](https://en.wikipedia.org/wiki/Pulse-width_modulation) (PWM).  In this case the microcontroller sends a pulse a thousand times a second.  If that pulse is 100% wide the LED strip will be fully bright.  A 50% pulse width (50% duty cycle) will be less bright. Send 1% duty cycle pulses and the LED strip will be very dim.  Zero width pulses (no pulses) shut off the LED.  So by controlling the pulse width we control the light level.
 
-The 3.3v pulses from the microcontroller are level shifted up to ~6.7V to better drive the power Mosfet module.  This makes it easier to use other power Mosfets types in the future. [Here you can see an oscilloscope trace](/assets/scope_images/best/dimmer_driver_triple_pulse.png) of both the ~3.3V microprocessor pulse (yellow) and the ~6.7V pulse (blue).
+The 3.3v pulses from the microcontroller are level shifted up to ~6.5V to better drive the power Mosfet module.  This makes it easier to use other power Mosfets types in the future. [Here you can see an oscilloscope trace](/assets/scope_images/best/dimmer_driver_triple_pulse.png) of both the ~3.3V microprocessor pulse (yellow) and the ~6.5V pulse (blue).
 
 A 1% duty cycle pulse is very narrow but as you can see in [this scope trace](/assets/scope_images/best/dimmer_driver_1per_zoom.png) the pulse (blue) reaches the Mosfet module's ~3v switching threshold quickly and acceptably.  So all good.
 
-The 6.7V pulses are output to the power Mosfet module to deliver the 12V pulse with the higher current the LED strip needs.  This particular LED strip is fully turned on at 12v and off below ~9.3V. Therefore, the voltage on the LED strip drops rapidly to ~9.3V and then more slowly after that when the pulse is off.
+The 6.5V pulses are output to the power Mosfet module to deliver a 12V pulse with the higher current the LED strip needs.  This particular LED strip is fully turned on at 12v and off below ~9.3V. When the 6.5V pulse drops back to 0V, the 12V voltage on the LED strip drops rapidly to ~9.3V and then more slowly lower.
 The LED strip is quite dim with a 1% duty cycle pulse. Certainly as dim as I need.  [Here is a view](/assets/scope_images/best/LED_strip_PWM_with_1uf2.png) of the pulses on the LED strip power line.
 
 ### Microcontroller software logic

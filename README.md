@@ -1,4 +1,4 @@
-# ESP8266 based, Alexa control of LED strips with rotary control knob and on/off switch
+#ESP8266 based, Alexa control of LED strips with rotary control knob and on/off switch
 This repo contains notes on creating an ESP8266 based Arduino Alexa LED strip controller, while also providing manual control.  
 <br />
 When a request for under-cabinet lights becomes a custom electronics project.

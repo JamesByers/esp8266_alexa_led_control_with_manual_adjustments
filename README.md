@@ -46,7 +46,7 @@ The LED strip is quite dim with a 1% duty cycle pulse. Certainly as dim as I nee
 ### Microcontroller software logic
 The [Arduino sketch](/code/esp8266_alexa_led_control_w_encoder/esp8266_alexa_led_control_w_encoder.ino) (program) performs these functions:
 * Connects to Wifi
-* Communicates to Alexa over the internet and represents itself as a Philips smart lightbulb.
+* Communicates to Alexa over WIFI and represents itself as a Philips smart lightbulb.
 * Listens for a command from Alexa
 * Watches for a turn of knob (rotary encoder)
 * Watches for a push on the knob (on/off).  Software debounce is performed in the code without a library.
